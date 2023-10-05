@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["title"] = "Calc";
+}
+
+<div>
+    <form method="post" asp-page-handler="OnPost">
+
+        <label for="AAA">Number 1:</label>
+        <input type="text" id="AAA" name="AAA">
+        <br />
+        <label for="BBB">Number 2:</label>
+        <input type="text" id="BBB" name="BBB">
+        <br />
+
+        <button name="action" value="AddService">Add Service</button>
+        <button name="action" value="SubService">Sub Service</button>
+        <br />
+        <label for="Result">Result: </label>
+        <span id="Result">
+            @ViewData["Result"]
+        </span>
+    </form>
+    <form method="get" asp-page-handler="OnGet">
+        <button name="GetHistory" value="GetHistory">Get History</button>
+    </form>
+    <div>
+        <p>History: <br />@Html.Raw(ViewData["History"])</p>
+ 
+    </div>
+</div>
+
