@@ -25,7 +25,11 @@ public static class MonitorService
     {
         _tracerProvider = Sdk.CreateTracerProviderBuilder()
             .AddConsoleExporter()
-            .AddZipkinExporter()
+            .AddZipkinExporter(options =>
+            {
+                options.Endpoint = new Uri("http://zipkin:9411/api/v2/spans");
+            })
+            .SetSampler(new AlwaysOnSampler())
             .AddSource(ActivitySource.Name)
             .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(ServiceName))
             .Build();
