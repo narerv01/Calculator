@@ -16,16 +16,12 @@ pipeline {
 		}  
 		stage("Deliver"){
 			steps {
-					 
-				bat 'docker login localhost:8080'
-				bat 'docker push narerv01/calculator:test_service_tag' 	
-				 
+					withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) { 
+					bat 'echo $PASSWORD' 
+					echo USERNAME 
+					echo "username is $USERNAME"
+				}
 			}
 		} 
-		stage("Deploy to Swarm") {
-            steps {
-                bat "docker stack deploy --compose-file docker-compose.yml test_service_image"  
-            }
-        }
 	}
 }
