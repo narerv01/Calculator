@@ -17,7 +17,7 @@ pipeline {
 		stage("Deliver"){
 			steps {
 					 
-				bat 'docker login'
+				bat 'docker login localhost:8080'
 				bat 'docker push narerv01/calculator:test_service_tag' 	
 				 
 			}
