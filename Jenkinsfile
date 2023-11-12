@@ -16,9 +16,9 @@ pipeline {
 		}  
 		stage("Deliver"){
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-					bat 'docker login -u $USERNAME -p $PASSWORD'
-					bat "docker compose push" 
+					withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+					bat 'echo %PASSWORD% | docker login -u %USERNAME% --password-stdin'
+					bat 'docker compose push' 	
 				}
 			}
 		} 
