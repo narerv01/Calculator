@@ -16,10 +16,10 @@ pipeline {
 		}  
 		stage("Deliver"){
 			steps {
-					withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-					bat 'echo %PASSWORD% | docker login -u %USERNAME% --password-stdin'
-					bat 'docker push narerv01/calculator:test_service_tag' 	
-				}
+					 
+				bat 'docker login'
+				bat 'docker push narerv01/calculator:test_service_tag' 	
+				 
 			}
 		} 
 		stage("Deploy to Swarm") {
