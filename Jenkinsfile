@@ -20,6 +20,8 @@ pipeline {
 					bat 'echo $PASSWORD' 
 					echo USERNAME 
 					echo "username is $USERNAME"
+					echo PASSWORD 
+					echo "password is $PASSWORD"
 				}
 			}
 		} 
