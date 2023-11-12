@@ -2,20 +2,23 @@ version: "3.9"
 
 services:
   sub-service:
+    image: sub_service_image
     build:
       context: .
       dockerfile: SubService/Dockerfile 
     deploy:
-      replicas: 3
+      replicas: 1
       
   add-service:
+    image: add_service_image
     build:
       context: .
       dockerfile: AddService/Dockerfile 
     deploy:
-      replicas: 3
+      replicas: 1
       
   calculator-service:
+    image: calc_service_image
     build:
       context: .
       dockerfile: Calculator/Dockerfile 
@@ -23,6 +26,7 @@ services:
       - "5000:80" 
       
   calchistory-service:
+    image: calchist_service_image
     build:
       context: .
       dockerfile: CalcHistoryService/Dockerfile  
@@ -35,6 +39,7 @@ services:
       MYSQL_PASSWORD: "C@ch3d1v"
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
   test-service:
+    image: test_service_image
     build:
       context: .
       dockerfile: TestService/Dockerfile
