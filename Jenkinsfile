@@ -17,7 +17,7 @@ pipeline {
 		stage("Deliver"){
 			steps {
 					withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) { 
-					bat 'echo $PASSWORD' 
+					bat 'docker login -u ${USERNAME} -p ${PASSWORD}' 
 					echo USERNAME 
 					echo "username is $USERNAME"
 					echo PASSWORD 
