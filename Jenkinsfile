@@ -6,7 +6,7 @@ pipeline {
 	stages {
 		stage("Build"){
 			steps {
-				bat "docker compose build"
+				bat ""
 			} 
 		} 
 		stage("Test"){
@@ -18,7 +18,7 @@ pipeline {
 			steps {
 					withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
 					bat 'echo %PASSWORD% | docker login -u %USERNAME% --password-stdin'
-					bat 'docker compose push' 	
+					bat 'docker push narerv01/calculator:test_service_tag' 	
 				}
 			}
 		} 
