@@ -18,7 +18,7 @@ pipeline {
 			steps {
 					withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) { 
 					bat 'docker login -u %USERNAME% -p %PASSWORD%'   
-					bat 'docker push narerv01/calculator:test_service_tag'
+					bat 'docker compose push'
 				}
 			}
 		} 
