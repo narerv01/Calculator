@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FeatureHub.SDK" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
     <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />

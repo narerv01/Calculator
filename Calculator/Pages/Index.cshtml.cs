@@ -4,6 +4,8 @@ using RestSharp;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using FeatureHubSDK;
+using IO.FeatureHub.SSE.Model;
 
 namespace Calculator.Pages
 {
@@ -86,21 +88,46 @@ namespace Calculator.Pages
 
             }
             else if (action == "MultiplyService")
-            {
+            { 
+
+                FeatureLogging.DebugLogger += (sender, s) => Console.WriteLine("DEBUG: " + s);
+                FeatureLogging.TraceLogger += (sender, s) => Console.WriteLine("TRACE: " + s);
+                FeatureLogging.InfoLogger += (sender, s) => Console.WriteLine("INFO: " + s);
+                FeatureLogging.ErrorLogger += (sender, s) => Console.WriteLine("ERROR: " + s);
+
+                var config = new EdgeFeatureHubConfig("http://featurehub:8085", "11e08528-9a84-4323-9192-e563e957078b/Mu5MxNaorQiXnAq3h5LhVQXYdwiFVwgplha34fOM");
+                var fh = await config.NewContext().Build();
+
                 try
                 {
-                    // Multiply
-                    RestClient restClient = new RestClient("http://multiply-service/");
-                    var task = restClient.PostAsync<long>(new RestRequest($"/multiplyservice?a={aaa}&b={bbb}"));
+                    await Task.Run(() =>
+                    {
 
-                    Console.WriteLine(task.Result);
-                    ViewData["Result"] = task.Result;
+                    if (fh["MultiplyFeature"].IsEnabled)
+                    {
+                        
+                            // Multiply
+                            RestClient restClient = new RestClient("http://multiply-service/");
+                            var task = restClient.PostAsync<long>(new RestRequest($"/multiplyservice?a={aaa}&b={bbb}"));
+
+                            Console.WriteLine(task.Result);
+                            ViewData["Result"] = task.Result;
+                       
+                    }
+                    else
+                    {
+                        ViewData["Result"] = "Service Disabled";
+                        Console.WriteLine("Service Disabled");
+                    }
+                    });
                 }
                 catch (Exception ex)
                 {
-                    ViewData["Result"] = "No service currenty";
-                    Console.WriteLine("No service currenty");
+                ViewData["Result"] = "No service currenty";
+                Console.WriteLine("No service currenty");
                 }
+
+
 
             }
         }
