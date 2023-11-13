@@ -71,6 +71,10 @@ namespace CalcHistoryService.Controllers
             {
                 oper = "+";
             }
+            else if (op == 3)
+            {
+                oper = "*";
+            }
 
             CalcHistory.Execute("INSERT INTO CalcHistory2 (numberA, numberB, Result, operat) VALUES (@numberA, @numberB, @Result, @operat)", new { numberA = a, numberB = b, Result = res, operat = oper });
             CalcHistory.Close();
