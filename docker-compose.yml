@@ -43,6 +43,8 @@ services:
     build:
       context: .
       dockerfile: TestService/Dockerfile
+    deploy:
+      replicas: 0
       
   seq:
     image: datalust/seq
