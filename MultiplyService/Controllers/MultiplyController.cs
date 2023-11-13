@@ -47,7 +47,7 @@ namespace MultiplyService.Controllers
                     {
                         r.Header.Add(key, value);
                     });
-                    //
+                    
                     _ = rclient.PostAsync<long>(new RestRequest($"/CalcHistoryService?a={a}&b={b}&res={res}&op={operat}"));
 
 
