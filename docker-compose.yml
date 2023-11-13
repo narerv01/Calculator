@@ -61,13 +61,7 @@ services:
     volumes:
       - featurehub-h2-data:/db
     ports:
-      - 8085:8085
-  app:
-    build:
-      context: .
-      dockerfile: Calculator/Dockerfile
-    depends_on:
-      - featurehub
+      - 8085:8085 
       
   seq:
     image: datalust/seq
