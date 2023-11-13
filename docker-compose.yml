@@ -55,6 +55,20 @@ services:
     deploy:
       replicas: 0
       
+  featurehub:
+    image: featurehub/party-server:latest
+    restart: always
+    volumes:
+      - featurehub-h2-data:/db
+    ports:
+      - 8085:8085
+  app:
+    build:
+      context: .
+      dockerfile: Demo/Dockerfile
+    depends_on:
+      - featurehub
+      
   seq:
     image: datalust/seq
     ports:
@@ -86,4 +100,5 @@ services:
       
 volumes:
   rps_seq_data: 
-  zipkin_data:
+  zipkin_data: 
+  featurehub-h2-data:
