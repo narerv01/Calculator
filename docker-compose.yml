@@ -1,5 +1,10 @@
 version: "3.9"
 
+networks:
+  default:
+    external:
+      name: calculator_default
+
 services:
   sub-service:
     image: narerv01/sub_service_image:$BUILD_NUMBER
