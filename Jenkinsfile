@@ -24,7 +24,7 @@ pipeline {
 		} 
 		stage("Deploy to Swarm") {
             steps {
-                bat "docker stack deploy --compose-file docker-compose.yml test_service_image"  
+                bat "docker stack deploy --compose-file docker-compose.yml calculator"  
             }
         }
 	}
