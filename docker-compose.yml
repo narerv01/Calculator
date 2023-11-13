@@ -40,7 +40,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       
   test-service: 
-    image: test-service:latest  # Placeholder image name
+    image: narerv01/test-service_image:$BUILD_NUMBER
     build:
       context: .
       dockerfile: TestService/Dockerfile
