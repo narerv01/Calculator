@@ -65,7 +65,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Demo/Dockerfile
+      dockerfile: Calculator/Dockerfile
     depends_on:
       - featurehub
       
