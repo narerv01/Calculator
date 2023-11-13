@@ -17,6 +17,14 @@ services:
     deploy:
       replicas: 1
       
+  multiply-service:
+    image: narerv01/multiply_service_image:$BUILD_NUMBER
+    build:
+      context: .
+      dockerfile: MultiplyService/Dockerfile 
+    deploy:
+      replicas: 1
+      
   calculator-service:
     image: narerv01/calc_service_image:$BUILD_NUMBER
     build:

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monitoring", "Monitoring\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddService", "AddService\AddService.csproj", "{5113D9BC-1A2A-4C9A-BB31-DC9D17FF4111}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestService\TestService.csproj", "{6DB6D2C5-9DF6-4FC4-A229-0B8FD1DDA0F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestService", "TestService\TestService.csproj", "{6DB6D2C5-9DF6-4FC4-A229-0B8FD1DDA0F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplyService", "MultiplyService\MultiplyService.csproj", "{77C4BE22-C10E-49A3-BA55-30BA8ECF5849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6DB6D2C5-9DF6-4FC4-A229-0B8FD1DDA0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB6D2C5-9DF6-4FC4-A229-0B8FD1DDA0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DB6D2C5-9DF6-4FC4-A229-0B8FD1DDA0F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C4BE22-C10E-49A3-BA55-30BA8ECF5849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C4BE22-C10E-49A3-BA55-30BA8ECF5849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C4BE22-C10E-49A3-BA55-30BA8ECF5849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C4BE22-C10E-49A3-BA55-30BA8ECF5849}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

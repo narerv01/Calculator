@@ -84,7 +84,25 @@ namespace Calculator.Pages
                     Console.WriteLine("No service currenty");
                 }
 
-            } 
+            }
+            else if (action == "MultiplyService")
+            {
+                try
+                {
+                    // Multiply
+                    RestClient restClient = new RestClient("http://multiply-service/");
+                    var task = restClient.PostAsync<long>(new RestRequest($"/multiplyservice?a={aaa}&b={bbb}"));
+
+                    Console.WriteLine(task.Result);
+                    ViewData["Result"] = task.Result;
+                }
+                catch (Exception ex)
+                {
+                    ViewData["Result"] = "No service currenty";
+                    Console.WriteLine("No service currenty");
+                }
+
+            }
         }
     }
 }
