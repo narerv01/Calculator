@@ -100,8 +100,8 @@ namespace Calculator.Pages
 
                 try
                 {
-                    //await Task.Run(() =>
-                    //{
+                    await Task.Run(() =>
+                    {
 
                     if (fh["MultiplyFeature"].IsEnabled)
                     {
@@ -119,7 +119,7 @@ namespace Calculator.Pages
                         ViewData["Result"] = "Service Disabled";
                         Console.WriteLine("Service Disabled");
                     }
-                    //});
+                    });
                 }
                 catch (Exception ex)
                 {
