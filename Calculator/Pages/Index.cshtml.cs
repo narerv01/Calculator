@@ -95,7 +95,7 @@ namespace Calculator.Pages
                 FeatureLogging.InfoLogger += (sender, s) => Console.WriteLine("INFO: " + s);
                 FeatureLogging.ErrorLogger += (sender, s) => Console.WriteLine("ERROR: " + s);
 
-                var config = new EdgeFeatureHubConfig("http://featurehub:8085", "11e08528-9a84-4323-9192-e563e957078b/Mu5MxNaorQiXnAq3h5LhVQXYdwiFVwgplha34fOM");
+                var config = new EdgeFeatureHubConfig("http://featurehub:8085", "739cf51a-85be-4118-a4ef-b102554114a5/6v5TQDPNEHFlMCUoW7MyQ6Z3pMrfC09R7ElPu9s5");
                 var fh = await config.NewContext().Build();
 
                 try
