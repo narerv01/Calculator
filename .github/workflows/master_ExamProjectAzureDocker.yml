@@ -46,9 +46,4 @@ jobs:
         app-name: 'ExamProjectAzureDocker'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_e0395277ea3b40119f15ba048ecfc8f7 }}
-        images: |
-          examprojectnarek.azurecr.io/sub_service_image:${{ github.sha }}
-          examprojectnarek.azurecr.io/add_service_image:${{ github.sha }}
-          examprojectnarek.azurecr.io/multiply_service_image:${{ github.sha }} 
-          examprojectnarek.azurecr.io/calc_service_image:${{ github.sha }}
-          examprojectnarek.azurecr.io/calchist_service_image:${{ github.sha }}
+        images: 'examprojectnarek.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f0ebff9492c441b397a613a23093cb52 }}/examprojectnarek/exam-project:${{ github.sha }}'
