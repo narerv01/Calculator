@@ -32,6 +32,9 @@ jobs:
         image: calculator
         tags: examprojectnarek.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f0ebff9492c441b397a613a23093cb52 }}/examprojectnarek/exam-project:${{ github.sha }}
         composeFile: docker-compose.yml
+        registry: https://examprojectnarek.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_f0ebff9492c441b397a613a23093cb52 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_feb44e6a7666427a868622bd7d394e5c }}
 
   deploy:
     runs-on: ubuntu-latest
