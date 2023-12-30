@@ -2,7 +2,7 @@ version: "3.9"
   
 services:
   sub-service:
-    image: examprojectnarek.azurecr.io/examprojectnarek/examprojectnarek/exam-project/sub_service_image
+    image: examprojectnarek.azurecr.io/sub_service_image
     build:
       context: .
       dockerfile: SubService/Dockerfile 
@@ -10,7 +10,7 @@ services:
       replicas: 1
       
   add-service:
-    image: examprojectnarek.azurecr.io/examprojectnarek/examprojectnarek/exam-project//add_service_image
+    image: examprojectnarek.azurecr.io/add_service_image
     build:
       context: .
       dockerfile: AddService/Dockerfile 
@@ -18,7 +18,7 @@ services:
       replicas: 1
       
   multiply-service:
-    image: examprojectnarek.azurecr.io/examprojectnarek/examprojectnarek/exam-project//multiply_service_image
+    image: examprojectnarek.azurecr.io/multiply_service_image
     build:
       context: .
       dockerfile: MultiplyService/Dockerfile 
@@ -26,7 +26,7 @@ services:
       replicas: 1
       
   calculator-service:
-    image: examprojectnarek.azurecr.io/examprojectnarek/examprojectnarek/exam-project//calc_service_image
+    image: examprojectnarek.azurecr.io/calc_service_image
     build:
       context: .
       dockerfile: Calculator/Dockerfile 
@@ -34,7 +34,7 @@ services:
       - "5000:80" 
       
   calchistory-service:
-    image: examprojectnarek.azurecr.io/examprojectnarek/examprojectnarek/exam-project//calchist_service_image
+    image: examprojectnarek.azurecr.io/calchist_service_image
     build:
       context: .
       dockerfile: CalcHistoryService/Dockerfile  
@@ -48,7 +48,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       
   test-service: 
-    image: examprojectnarek.azurecr.io/examprojectnarek/examprojectnarek/exam-project//test-service_image:latest
+    image: examprojectnarek.azurecr.io/test-service_image:latest
     build:
       context: .
       dockerfile: TestService/Dockerfile
