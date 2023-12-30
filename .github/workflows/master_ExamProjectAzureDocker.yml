@@ -27,11 +27,11 @@ jobs:
         password: ${{ secrets.AzureAppService_ContainerPassword_feb44e6a7666427a868622bd7d394e5c }}
 
     - name: Build and push container image to registry
-      uses: docker/build-push-action@v3
+      uses: 1-1is0/docker-compose-build-push@publish
       with:
         push: true
         tags: examprojectnarek.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f0ebff9492c441b397a613a23093cb52 }}/examprojectnarek/exam-project:${{ github.sha }}
-        file: docker-compose.yml
+        composeFile: docker-compose.yml
 
   deploy:
     runs-on: ubuntu-latest
